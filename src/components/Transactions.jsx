@@ -1,22 +1,24 @@
 import React from "react";
+import styles from './styles.module.css'
 
-const Transaction = ({list}) => {
+const Transactions = ({list}) => {
+    return(
+        <div className={styles.transactionsListContainer}>
 
-    return (
-        <div>
-            <h4>Lista de Transações</h4>
+            <h4 >Transações</h4>
+            
             {
-                list.lenght ? list.map(
+                list.length ? list.map(
                     
-                    (item) => (
+                    (item) =>(
                         <div>
-                            <div key={item.id}>
+                            <div key={item.id} className={styles.transactionLine}>
                                 <div className="transaction-name">{item.id}</div>
                                 <div className="transaction-name"><strong>{item.name}</strong></div>
                                 <div className="transaction-value">{item.converted}</div>
-                         </div>
+                            </div>
                         </div>
-                    
+                        
                     )
                 ):(
                     <div>
@@ -24,8 +26,8 @@ const Transaction = ({list}) => {
                     </div>
                 )
             }
-    </div>
-  )
+        </div>
+    )
 }
 
-export default Transaction
+export default Transactions
